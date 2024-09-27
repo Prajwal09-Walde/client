@@ -26,7 +26,6 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(jobLoadAction(page, kw, cat, location));
-    console.log('Job set to', JSON.stringify(jobs))
   }, [page, kw, cat, location]);
 
   useEffect(() => {

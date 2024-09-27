@@ -7,7 +7,6 @@ export const jobLoadAction = (pageNumber, kw = '', category = '', location = '')
   console.log('Inside job load action');
   try {
     const { data } = await axios.get(`/api/jobs/show/?pageNumber=${pageNumber}&keyword=${kw}&cat=${category}&location=${location}`);
-    console.log('data is', JSON.stringify(data));
     dispatch({
       type: JOB_LOAD_SUCC,
       payload: data,
