@@ -7,7 +7,7 @@ export const Footer = () => {
     <>
         <Box sx={{
             height: '70px',
-            bgcolor: palette.secondary.midNightBlue,
+            bgcolor: palette.secondary.midNightViolet,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',

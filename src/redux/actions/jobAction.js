@@ -4,8 +4,10 @@ import { DELETE_JOB_FAIL, DELETE_JOB_REQ, DELETE_JOB_SUCC, EDIT_JOB_FAIL, EDIT_J
 
 export const jobLoadAction = (pageNumber, kw = '', category = '', location = '') => async (dispatch) => {
   dispatch({ type: JOB_LOAD_REQ });
+  console.log('Inside job load action');
   try {
     const { data } = await axios.get(`/api/jobs/show/?pageNumber=${pageNumber}&keyword=${kw}&cat=${category}&location=${location}`);
+    console.log('data is', JSON.stringify(data));
     dispatch({
       type: JOB_LOAD_SUCC,
       payload: data,
@@ -16,6 +18,7 @@ export const jobLoadAction = (pageNumber, kw = '', category = '', location = '')
       payload: error.response.data.error
     });
   }
+  console.log('Bye from job load action');
 }
 
 export const jobLoadSingleAction = (id) => async (dispatch) => {

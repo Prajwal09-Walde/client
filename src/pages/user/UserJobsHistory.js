@@ -13,7 +13,7 @@ export const UserJobsHistory = () => {
         <Typography variant='h4' sx={{color: '#fafafa'}}>Jobs History</Typography>
         <Box>
           {
-            user && user?.jobsHistory?.map((hist, i) => (
+            user && user?.jobsHistory.map((hist, i) => (
               <CardComponent
                 key={i}
                 id={hist._id}

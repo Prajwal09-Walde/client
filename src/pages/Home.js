@@ -6,14 +6,15 @@ import { Link, useParams } from 'react-router-dom';
 import { CardComponent } from "../components/CardComponent";
 import { Footer } from "../components/Footer";
 import { Header } from '../components/Header';
-import { LoadingBox } from '../components/LoadingBox';
+import { LoadingBox } from "../components/LoadingBox";
 import { Navbar } from '../components/Navbar';
 import { SelectComponent } from "../components/SelectComponent";
 import { jobLoadAction } from '../redux/actions/jobAction';
 import { jobTypeLoadAction } from "../redux/actions/jobTypeAction";
 
+
 const Home = () => {
-  const { jobs, setUniqueLocation, pages, loading } = useSelector(state => state.loadJobs);
+  const { jobs, setUniqueLocation, pages, loading } = useSelector(state => state?.loadJobs);
 
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -22,8 +23,10 @@ const Home = () => {
   const [page, setPage] = useState(1);
   const [cat, setCat] = React.useState('');
 
+
   useEffect(() => {
     dispatch(jobLoadAction(page, kw, cat, location));
+    console.log('Job set to', JSON.stringify(jobs))
   }, [page, kw, cat, location]);
 
   useEffect(() => {
@@ -75,30 +78,31 @@ const Home = () => {
               </Card>
             </Box>
 
-            <Box sx={{ flex: 5, p: 2 }}>
+            <Box sx={{ flex: 5, p: 5 }}>
               {
                 loading ?
                   <LoadingBox /> :
                   jobs && jobs.length === 0 ?
                     <>
-                      <Box sx={{
-                        minHeight: '350px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                      }}>
-                        <h2>No result found!</h2>
+                      <Box
+                        sx={{
+                          minHeight: '350px',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <h2>No result found :(</h2>
                       </Box>
                     </> :
-
                     jobs && jobs.map((job, i) => (
                       <CardComponent
                         key={i}
-                        id={job._id}
-                        jobTitle={job.title}
-                        description={job.description}
-                        category={job.jobType ? job.jobType.jobTypeName : "No category"}
-                        location={job.location}
+                        id={job?._id}
+                        jobTitle={job?.title}
+                        description={job?.description}
+                        category={job?.jobType ? job?.jobType.jobTypeName : "No Category"}
+                        location={job?.location}
                       />
                     ))
               }

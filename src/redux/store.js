@@ -28,7 +28,7 @@ let initialState = {
         userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
     },
     mode: {
-        mode: 'light'
+        mode: "light"
     }
 };
 

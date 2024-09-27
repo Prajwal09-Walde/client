@@ -8,6 +8,7 @@ export const userSignInAction = (user) => async (dispatch) => {
     try {
         const {data} = await axios.post('/api/signin', user);
         localStorage.setItem('userInfo', JSON.stringify(data));
+        console.log('User data is', JSON.stringify(data)); 
         dispatch({
             type: USER_SIGNIN_SUCC,
             payload: data

@@ -141,7 +141,7 @@ export const Navbar = () => {
                     </Box>
                     <IconButton sx={{ mr: 4 }} onClick={() => dispatch(toggleActionTheme())}>
                         {palette.mode === 'dark' ? (
-                            <DarkMode sx={{ color: "#ffffff", fontSize: "25px" }} />
+                            <DarkMode sx={{ color: "#000000", fontSize: "25px" }} />
                         ) : (
                             <LightMode sx={{ color: "#ffffff", fontSize: "25px" }} />
                         )}

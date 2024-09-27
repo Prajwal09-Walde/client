@@ -1,9 +1,9 @@
 import { CREATE_JOB_TYPE_FAIL, CREATE_JOB_TYPE_REQ, CREATE_JOB_TYPE_RESET, CREATE_JOB_TYPE_SUCC, JOB_TYPE_LOAD_FAIL, JOB_TYPE_LOAD_REQ, JOB_TYPE_LOAD_RESET, JOB_TYPE_LOAD_SUCC } from "../constants/jobTypeConstant";
 
-export const loadJobTypeReducer = (state = {jobType: []}, action) => {
+export const loadJobTypeReducer = (state = { jobType: [] }, action) => {
     switch (action.type) {
         case JOB_TYPE_LOAD_REQ:
-            return {loading: true}
+            return { loading: true }
         case JOB_TYPE_LOAD_SUCC:
             return {
                 loading: false,
@@ -24,7 +24,7 @@ export const loadJobTypeReducer = (state = {jobType: []}, action) => {
 export const createJobTypeReducer = (state = {}, action) => {
     switch (action.type) {
         case CREATE_JOB_TYPE_REQ:
-            return {loading: true}
+            return { loading: true }
         case CREATE_JOB_TYPE_SUCC:
             return {
                 loading: false,
