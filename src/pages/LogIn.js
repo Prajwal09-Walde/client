@@ -22,7 +22,7 @@ const validationSchema = yup.object({
 const LogIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated, userInfo } = useSelector(state => state?.signIn);
+  const { isAuthenticated, userInfo } = useSelector(state => state.signIn);
   useEffect(() => {
     if (isAuthenticated) {
       if (userInfo.role === 1) {
