@@ -1,5 +1,4 @@
 import { DarkMode, LightMode } from '@mui/icons-material';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { AppBar, Box, IconButton, InputBase, Toolbar, Typography } from '@mui/material';
 import { alpha, styled, useTheme } from '@mui/material/styles';
@@ -49,27 +48,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const HeaderTop = () => {
-    const [ isDrawerOpen, setIsDrawerOpen ] = React.useState(false);
     const { palette } = useTheme();
     const dispatch = useDispatch();
 
-    const toggleDrawer = () => {
-        setIsDrawerOpen(!isDrawerOpen);
-    };
 
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position='static' sx={{ boxShadow: 0 }}>
                 <Toolbar>
-                    <IconButton onClick={toggleDrawer}
-                        size='large'
-                        edge='start'
-                        color='inherit'
-                        aria-label='open drawer'
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
                     <Typography
                         variant='h6'
                         noWrap
@@ -80,8 +66,8 @@ export const HeaderTop = () => {
                     </Typography>
 
                     <IconButton onClick={() => dispatch(toggleActionTheme())}>
-                        {palette.mode === 'dark' ? (
-                            <DarkMode sx={{ color: '#ffffff', fontSize: '25px' }} />
+                        {palette?.mode === 'dark' ? (
+                            <DarkMode sx={{ color: '#000000', fontSize: '25px' }} />
                         ) : (
                             <LightMode sx={{ color: '#ffffff', fontSize: '25px' }} />
                         )}

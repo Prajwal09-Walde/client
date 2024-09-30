@@ -1,6 +1,6 @@
-import { Category, Dashboard, GroupAdd, Login, Person3 } from '@mui/icons-material';
+import { Category, Dashboard, GroupAdd, Login, Menu, Person3 } from '@mui/icons-material';
 import Work from '@mui/icons-material/Work';
-import { Avatar, Box, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, useTheme } from '@mui/material';
+import { Avatar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, useTheme } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,10 +16,12 @@ export const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+
 
   useEffect(() => {
     dispatch(userProfileAction())
-  }, []);
+  }, [dispatch]);
 
   const logOut = () => {
     dispatch(userLogoutAction());
@@ -28,8 +30,15 @@ export const Sidebar = () => {
       navigate('/');
     }, 500)
   }
+
+  const toggleSidebar = () => {
+    setDrawerOpen(!drawerOpen);
+  }
   return (
     <>
+      <IconButton onClick={toggleSidebar}>
+        <Menu/>
+      </IconButton>
       <Drawer
         variant="persistent"
         anchor="left"
