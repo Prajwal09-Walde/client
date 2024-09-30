@@ -1,4 +1,3 @@
-
 import AddIcon from '@mui/icons-material/Add';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
@@ -122,4 +121,3 @@ export const DashboardJobs = () => {
         </Box>
     )
 };
-
