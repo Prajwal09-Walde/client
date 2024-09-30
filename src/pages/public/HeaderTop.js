@@ -1,11 +1,10 @@
 import { DarkMode, LightMode } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { AppBar, Box, Drawer, IconButton, InputBase, List, ListItem, ListItemButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, IconButton, InputBase, Toolbar, Typography } from '@mui/material';
 import { alpha, styled, useTheme } from '@mui/material/styles';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { toggleActionTheme } from '../../redux/actions/themeAction';
 
 const Search = styled('div')(({ theme }) => ({
@@ -98,36 +97,6 @@ export const HeaderTop = () => {
                     </Search>
                 </Toolbar>
             </AppBar>
-
-            <Drawer
-              anchor='left'
-              open={isDrawerOpen}
-              onClose={toggleDrawer}
-              sx={{
-                '& .MuiDrawer-paper': {
-                    width: 240,
-                    boxSizing: 'border-box'
-                }
-              }}
-            >
-                <Box 
-                  sx={{width: 240, bgcolor: 'background.paper', height: '100%'}}
-                  role='presentation'
-                  onClick={toggleDrawer}
-                  onKeyDown={toggleDrawer}
-                >
-                   <List component={Link} to='/'>
-                    <ListItem>
-                        <ListItemButton sx={{color: palette.primary.main, mt: 4}}>Home</ListItemButton>
-                    </ListItem>
-                   </List>
-                   <List component={Link} to='/login'>
-                    <ListItem>
-                        <ListItemButton sx={{color: palette.primary.main, mt: 2}}>Logout</ListItemButton>
-                    </ListItem>
-                   </List>
-                </Box>
-            </Drawer>
         </Box>
     )
 }

@@ -3,6 +3,7 @@ import React from 'react'
 import { HeaderTop } from './HeaderTop'
 import { Sidebar } from './Sidebar'
 
+
 export const Layout = (Component) => ({ ...props }) => {
   return (
     <>
