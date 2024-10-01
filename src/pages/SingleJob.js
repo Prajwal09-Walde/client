@@ -1,8 +1,7 @@
-import { Box, Button, Card, Container, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Button, Card, CardContent, Container, Stack, Typography, useTheme } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { CardComponent } from '../components/CardComponent.js';
 import { Footer } from '../components/Footer.js';
 import { LoadingBox } from '../components/LoadingBox.js';
 import { Navbar } from '../components/Navbar.js';
@@ -11,8 +10,8 @@ import { userApplyJobAction } from '../redux/actions/userAction.js';
 
 export const SingleJob = () => {
   const { palette } = useTheme();
-  const { dispatch } = useDispatch();
-  const { singleJob, loading } = useSelector(state => state.singleJob);
+  const dispatch  = useDispatch();
+  const { singleJob, loading } = useSelector(state => state?.singleJob);
   const { id } = useParams();
   useEffect(() => {
     dispatch(jobLoadSingleAction(id));
@@ -40,7 +39,7 @@ export const SingleJob = () => {
                 {
                   loading ? <LoadingBox /> :
                     <Card sx={{bgcolor: palette.primary.white}}>
-                      <CardComponent>
+                      <CardContent>
                         <Typography variant='h5' component='h3'>
                           {singleJob && singleJob.title}
                         </Typography>
@@ -54,9 +53,9 @@ export const SingleJob = () => {
                           <Box component='span' sx={{ fontWeight: 700 }}>Location</Box> : ${singleJob && singleJob.location}
                         </Typography>
                         <Typography variant='body2' sx={{ pt: 2 }}>
-                          {SingleJob && singleJob.description}
+                          {SingleJob && singleJob?.description}
                         </Typography>
-                      </CardComponent>
+                      </CardContent>
                     </Card>
                 }
               </Box>
