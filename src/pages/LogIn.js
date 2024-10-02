@@ -25,12 +25,16 @@ const LogIn = () => {
   const { isAuthenticated, userInfo } = useSelector(state => state.signIn);
   useEffect(() => {
     if (isAuthenticated) {
+      
       if (userInfo.role === 1) {
         navigate('/admin/dashboard')
       } else {
         navigate('/user/dashboard')
+        
       }
     }
+    console.log("navigated to", isAuthenticated);
+    console.log('Navigated to', userInfo);
   }, [isAuthenticated])
 
   const formik = useFormik({

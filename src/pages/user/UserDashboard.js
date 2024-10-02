@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { StatComponent } from '../../components/StatComponent';
 
 export const UserDashboard = () => {
-    const { user } = useSelector(state => state?.userProfile);
+    const { user } = useSelector(state => state.userProfile);
     return (
         <>
             <Box>

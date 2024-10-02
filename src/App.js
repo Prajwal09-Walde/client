@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import { AdminRoute } from "./components/AdminRoute.js";
-import UserRoute from "./components/userRoute.js";
+import { UserRoute } from "./components/userRoute.js";
 import { AdminDashboard } from "./pages/admin/AdminDashboard.js";
 import DashboardCategory from "./pages/admin/DashboardCategory.js";
 import DashboardCreateCategory from "./pages/admin/DashboardCreateCategory.js";
@@ -52,7 +52,7 @@ const App = () => {
             <Route path="/admin/job/create" element={<AdminRoute><DashboardCreateJobHOC /></AdminRoute>} />
             <Route path="/admin/edit/job/:id" element={<AdminRoute><DashboardAdminEditJobHOC /></AdminRoute>} />
             <Route path="/admin/category/create" element={<AdminRoute><DashboardCreateCategoryHOC /></AdminRoute>} />
-            <Route path="/user/dashboard" element={<AdminRoute><UserDashboardHOC /></AdminRoute>} />
+            <Route path="/user/dashboard" element={<UserRoute><UserDashboardHOC /></UserRoute>} />
             <Route path="/user/jobs" element={<UserRoute><UserJobsHistoryHOC /></UserRoute>} />
             <Route path="/user/info" element={<UserRoute><UserInfoDashboardHOC /></UserRoute>} />
             <Route path='*' element={<NotFound />} />

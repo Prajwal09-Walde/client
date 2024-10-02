@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 export const UserInfoDashboard = () => {
-  const { user } = useSelector(state => state?.userProfile);   
+  const { user } = useSelector(state => state.userProfile);   
   const { palette } = useTheme();
   return (
     <>
