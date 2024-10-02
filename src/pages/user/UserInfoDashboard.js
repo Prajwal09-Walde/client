@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 export const UserInfoDashboard = () => {
-  const { user } = useSelector(state => state.userProfile);   
+  const { user } = useSelector(state => state?.userProfile);   
   const { palette } = useTheme();
   return (
     <>
@@ -15,16 +15,16 @@ export const UserInfoDashboard = () => {
             </Typography>
             <hr style={{ marginBottom: "30px" }} />
             <Typography variant='h6' component='div' sx={{ color: "#fafafa" }}>
-              First Name: {user && user?.firstName}
+              First Name: {user && user.firstName}
             </Typography>
             <Typography variant='h6' component='div' sx={{ color: "#fafafa" }}>
-              Last Name: {user && user?.lastName}
+              Last Name: {user && user.lastName}
             </Typography>
             <Typography variant='h6' component='div' sx={{ color: "#fafafa" }}>
-              Email: {user && user?.email}
+              Email: {user && user.email}
             </Typography>
             <Typography sx={{ mb: 1.5, color: 'gray', pt: 2 }} color="text.secondary">
-              Status: {user && user?.role === 0 ? "Regular user" : "Admin"}
+              Status: {user && user.role === 0 ? "Regular user" : "Admin"}
             </Typography>
           </CardContent>
         </Card>

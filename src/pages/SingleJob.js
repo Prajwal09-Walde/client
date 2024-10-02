@@ -44,13 +44,13 @@ export const SingleJob = () => {
                           {singleJob && singleJob.title}
                         </Typography>
                         <Typography variant='body2'>
-                          <Box component='span' sx={{ fontWeight: 700 }}>Salary</Box> : ${singleJob && singleJob.salary}
+                          <Box component='span' sx={{ fontWeight: 700 }}>Salary</Box> : Rs {singleJob && singleJob.salary}
                         </Typography>
                         <Typography variant='body2'>
-                          <Box component='span' sx={{ fontWeight: 700 }}>Category</Box> : ${singleJob && singleJob.jobType ? singleJob.jobType.jobTypeName : "No Category"}
+                          <Box component='span' sx={{ fontWeight: 700 }}>Category</Box> : {singleJob && singleJob.jobType ? singleJob.jobType.jobTypeName : "No Category"}
                         </Typography>
                         <Typography variant='body2'>
-                          <Box component='span' sx={{ fontWeight: 700 }}>Location</Box> : ${singleJob && singleJob.location}
+                          <Box component='span' sx={{ fontWeight: 700 }}>Location</Box> : {singleJob && singleJob.location}
                         </Typography>
                         <Typography variant='body2' sx={{ pt: 2 }}>
                           {SingleJob && singleJob?.description}
